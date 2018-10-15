@@ -69,7 +69,7 @@ void configureIO() {
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert. 
 	In Binärschreibweise ist PortD jetzt: xxxxx0xx
 	*/
-	PORTD &= ~(1 << DDD2);
+	PORTD &= ~(1 << PORTD2);
 
 	/*
 	Das Bit an der 3. Stelle von Port D (DDD3) wird
@@ -77,7 +77,7 @@ void configureIO() {
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert.
 	In Binärschreibweise ist PortD jetzt: xxxx0xxx
 	*/
-	PORTD &= ~(1 << DDD3);
+	PORTD &= ~(1 << PORTD3);
 }
 
 void configurePWM() {

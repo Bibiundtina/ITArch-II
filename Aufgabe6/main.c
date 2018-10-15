@@ -75,7 +75,7 @@ void configureIO() {
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert. 
 	In Binärschreibweise ist PortD jetzt: xxxxx0xx
 	*/
-	PORTD &= ~(1 << DDD2);
+	PORTD &= ~(1 << PORTD2);
 
 	/*
 	Das Bit an der 4. Stelle von Port D (DDD3) wird
@@ -83,7 +83,7 @@ void configureIO() {
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert.
 	In Binärschreibweise ist PortD jetzt: xxxx0xxx
 	*/
-	PORTD &= ~(1 << DDD3);
+	PORTD &= ~(1 << PORTD3);
 
 	/*
 	Das Bit an der 6. Stelle von Port D (DDD5) wird
@@ -91,7 +91,7 @@ void configureIO() {
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert.
 	In Binärschreibweise ist PortD jetzt: xx0xxxxx
 	*/
-	PORTD &= ~(1 << DDD5);
+	PORTD &= ~(1 << PORTD5);
 }
 
 void configureTimer() {
@@ -170,9 +170,9 @@ int main() {
 		if(status == 0) {
 			// Werkstück am Bandanfang eingelegt
 			if( (PIND & (1 << PIND2)) ) {
-				// Fahre 2 Sekunden vorwärts
+				// Fahre ? Sekunden vorwärts
 				PORTD |= (1 << PORTD7);
-				_delay_ms(500);
+				//_delay_ms(?);
 				PORTD &= ~(1 << PORTD7);
 
 				// Fahre Rückwärts bis zum Sensor
@@ -187,19 +187,16 @@ int main() {
 				PORTD &= ~(1 << PORTD7);
 				PORTB &= ~(1 << PORTB0);
 
-				// Status auf 1 wechseln
-				status = 1;
+				// Inkremente Counter auf 0 setzen
+				nInkremente = 0;
+
+				// Todo: Status auf 1 wechseln
 			}		
 		}
 		if(status == 1) {
-			// Inkremente Counter auf 0 setzen
-			nInkremente = 0;
-
-			// Vorwärtsdrehen
-			PORTD |= (1 << PORTD7);
+			// TODO: Vorwärtsdrehen
 			
-			// Status auf 2 setzen
-			status = 2;			
+			// TODO: Status auf 2 setzen	
 		}
 		if(status == 2) {
 			int mittelposition = /* TODO: Wert ermitteln*/;

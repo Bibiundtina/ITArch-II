@@ -31,33 +31,33 @@ int main() {
 	PORTD &= ~(1 << PORTD7);
 
 	/*
-	Das Bit an der 2. Stelle von Port D (DDD2) wird
+	Das Bit an der 3. Stelle von Port D (PORTD2) wird
 	auf LOW gesetzt. Wenn diese Bit als Eingang definiert
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert. 
 	In Binärschreibweise ist PortD jetzt: xxxxx0xx
 	*/
-	PORTD &= ~(1 << DDD2);
+	PORTD &= ~(1 << PORTD2);
 
 	/*
-	Das Bit an der 3. Stelle von Port D (DDD3) wird
+	Das Bit an der 4. Stelle von Port D (PORTD3) wird
 	auf LOW gesetzt. Wenn diese Bit als Eingang definiert
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert.
 	In Binärschreibweise ist PortD jetzt: xxxx0xxx
 	*/
-	PORTD &= ~(1 << DDD3);
+	PORTD &= ~(1 << PORTD3);
 
 
 	while(1) {		
 		// Prüfen, ob der Endlagensensor am Bandanfang aktiv ist
-		if( /* TODO: Prüfen ob PIND2 von PIND HIGH ist */ ) ) {
+		if( /* TODO: Prüfen ob PIND2 von PIND HIGH ist */ ) {
 			// Der Sensor ist aktiv, daher das Förderband vorwärts drehen
-			PORTD |= (1 << DDD7);
+			PORTD |= (1 << PORTD7);
 		} 
 
 		// Prüfen, ob der Endlagensensor am Bandende aktiv ist
 		if( /* TODO: Prüfen ob PIND3 von PIND HIGH ist */ ) {
 			// Der Sensor ist aktiv, daher das Förderband anhalten
-			PORTD &= ~(1 << DDD7);
+			PORTD &= ~(1 << PORTD7);
 		}
 	}
 }

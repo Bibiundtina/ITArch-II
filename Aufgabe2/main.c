@@ -3,7 +3,7 @@
 
 /* Einbinden der benötigten Bibliotheken */
 #include <avr/io.h>
-#include <util/delay.h>
+// TODO: Bibliothek <util/delay.h> einbinden
 
 int main() {
 
@@ -20,26 +20,18 @@ int main() {
 	gesetzt -> Ausgang
 	In Binärschreibweise ist DDRD jetzt: 10000000
 	*/
-	DDRD |= (1 << DDD7);
-
-	/*
-	Das Bit an 8. Stelle (D7) von PortD wird jetzt
-	auf HIGH gesetzt. Die anderen Bits von Port D
-	bleiben unverändert.
-	In Binärschreibweise ist PortD jetzt: 1xxxxxxx
-	*/
-	PORTD |= (1 << DDD7);
+	// TODO: setzen von Pin D7 auf HIGH (Ausgang) im Data Direction Register DDRD
 
 
 	while(1) {
 		// Das Förderband dreht vorwärts
-		// TODO: DDD7 von PORTD auf HIGH schalten
+		// TODO: Pin D7 in Register PORTD auf HIGH schalten
 		
 		// Das Programm wird um 1000 ms verzögert
 		// TODO: delay von 1000 ms einfügen
 
 		// Das Förderband wird angehalten
-		// TODO: DDD7 von PORTD auf LOW schalten
+		// TODO: Pin D7 in Register PORTD auf LOW schalten
 		
 		// Das Programm wird um 1000 ms verzögert
 		// TODO: delay von 1000 ms einfügen

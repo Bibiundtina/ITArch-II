@@ -36,7 +36,7 @@ int main() {
 	ist, wird dadurch der Pull-Up Widerstand deaktiviert. 
 	In Binärschreibweise ist PortD jetzt: xxxxx0xx
 	*/
-	PORTD &= ~(1 << DDD2);
+	PORTD &= ~(1 << PORTD2);
 
 	/*
 	Das Bit an der 3. Stelle von Port D (DDD3) wird
@@ -91,10 +91,10 @@ int main() {
 
 		if(wsCounter > 0 && endeBelegt == 0) {
 			// Förderband vorwärts drehen
-			PORTD |= (1 << DDD7);
+			PORTD |= (1 << PORTD7);
 		} else {
 			// Förderband anhalten
-			PORTD &= ~(1 << DDD7);
+			PORTD &= ~(1 << PORTD7);
 		}
 	}
 }
