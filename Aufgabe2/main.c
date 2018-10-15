@@ -3,7 +3,7 @@
 
 /* Einbinden der benötigten Bibliotheken */
 #include <avr/io.h>
-// TODO: Bibliothek <util/delay.h> einbinden
+// TODO: Bibliothek einbinden
 
 int main() {
 
