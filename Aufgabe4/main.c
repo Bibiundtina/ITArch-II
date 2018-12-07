@@ -57,16 +57,18 @@ int main() {
 
 	while(1) {
 		// Prüfen, ob der Endlagensensor am Bandanfang aktiv ist
-		if( /* TODO: Prüfen ob PIND2 von PIND HIGH ist */ ) {
+		if( PIND & (1<<PIND2) /* TODO: Prüfen ob PIND2 von PIND HIGH ist */ ) {
 			/* 
 			Prüfen ob anfangBelegt == 0 ist.  Falls ja, dann handelt
 			es sich um eine steigende Flanke am Sensor
 			*/
-			if( /* TODO: abfragen ob anfangBelegt auf 0 ist  */) {
+			if( anfangBelegt==0/* TODO: abfragen ob anfangBelegt auf 0 ist  */) {
 				// Werkstück ist neu am Anfang, daher anfangBelegt setzen
 				// TODO: anfangBelegt auf 1 setzen
+				anfangBelegt=1;
 				// wsCounter um eins hochzählen
 				// TODO: wsCounter eins hochzählen
+				wsCounter++;
 			}
 		} else {
 			// Es befindet sich kein WS im Anfangsbereich
@@ -74,7 +76,7 @@ int main() {
 		}
 
 		// Prüfen, ob der Endlagensensor am Bandende aktiv ist
-		if( /* TODO: Prüfen ob PIND3 von PIND HIGH ist */ ) {
+		if( PIND & (1<<PIND3)/* TODO: Prüfen ob PIND3 von PIND HIGH ist */ ) {
 			// Es befindet sich ein WS im Endbereich, endeBelegt auf 1 setzen
 			endeBelegt = 1;
 		} else {
@@ -86,6 +88,11 @@ int main() {
 			*/
 			if(endeBelegt == 1) {			
 				/* TODO: Logik implementieren */
+				endeBelegt=0;
+				if (wsCounter>0) {
+				wsCounter--;
+				}
+
 			}
 		}
 

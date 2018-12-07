@@ -191,12 +191,14 @@ int main() {
 				nInkremente = 0;
 
 				// Todo: Status auf 1 wechseln
+				status=1;
 			}		
 		}
 		if(status == 1) {
 			// TODO: Vorwärtsdrehen
-			
+			PORTD |= (1 << PORTD7);
 			// TODO: Status auf 2 setzen	
+			status=2;
 		}
 		if(status == 2) {
 			int mittelposition = /* TODO: Wert ermitteln*/;

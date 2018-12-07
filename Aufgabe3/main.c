@@ -49,13 +49,13 @@ int main() {
 
 	while(1) {		
 		// Prüfen, ob der Endlagensensor am Bandanfang aktiv ist
-		if( /* TODO: Prüfen ob PIND2 von PIND HIGH ist */ ) {
+		if(PIND & (1<<PIND2) /* TODO: Prüfen ob PIND2 von PIND HIGH ist */ ) {
 			// Der Sensor ist aktiv, daher das Förderband vorwärts drehen
 			PORTD |= (1 << PORTD7);
 		} 
 
 		// Prüfen, ob der Endlagensensor am Bandende aktiv ist
-		if( /* TODO: Prüfen ob PIND3 von PIND HIGH ist */ ) {
+		if( PIND & (1<<PIND3)/* TODO: Prüfen ob PIND3 von PIND HIGH ist */ ) {
 			// Der Sensor ist aktiv, daher das Förderband anhalten
 			PORTD &= ~(1 << PORTD7);
 		}
